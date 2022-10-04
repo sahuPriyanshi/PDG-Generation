@@ -85,10 +85,10 @@ public class InvoiceHistoryServiceImpl implements InvoiceHistoryService {
 //			headerHeading.setAlignment(Element.ALIGN_RIGHT);
 //			document.add(headerHeading);
 //
-//			Paragraph paragraph1 = new Paragraph("GA TRADE LINKS PRIVATE LIMITED,\n" +
-//					"UG 09 Highway Tower Building , Navlakha Square Indore, Madhya Pradesh, 452001, India\n" +
-//					"CIN : U52609MP2016PTC041247\n" +
-//					"GSTIN: 23AAGCG4755M1ZB", font3);
+//			Paragraph paragraph1 = new Paragraph("MY COMPANY NAME,\n" +
+//					"ADDRESS SECOND LINE , ADDRESS THIRD LINE, Madhya Pradesh, 452001, India\n" +
+//					"CIN : XXXXYYYYYZZZZZ\n" +
+//					"GSTIN: XXXXXYYYYYYZZZZ", font3);
 //			paragraph1.setAlignment(Element.ALIGN_RIGHT);
 //			document.add(paragraph1);
 
@@ -144,7 +144,7 @@ public class InvoiceHistoryServiceImpl implements InvoiceHistoryService {
 
 			String firstName = user.getFirstName();
 			String lastName = user.getLastName();
-            Paragraph info1 = new Paragraph("\nTo: "+firstName+" "+lastName);
+                        Paragraph info1 = new Paragraph("\nTo: "+firstName+" "+lastName);
 			info1.setAlignment(Element.ALIGN_LEFT);
 			document.add(info1);
 
@@ -191,13 +191,13 @@ public class InvoiceHistoryServiceImpl implements InvoiceHistoryService {
 			});
 
 			for (PlaceOrderProduct placeOrderProduct : products) {
-                //-----------------PRODUCT NAME-------------------
+                                //-----------------PRODUCT NAME-------------------
 				PdfPCell productName = new PdfPCell(new Phrase(placeOrderProduct.getProduct().getProductName()));
 				productName.setPaddingLeft(2);
 				productName.setVerticalAlignment(Element.ALIGN_MIDDLE);
 				productName.setHorizontalAlignment(Element.ALIGN_CENTER);
 				table.addCell(productName);
-                //-----------------DATE----------------------
+                                //-----------------DATE----------------------
 				Date createdDate = placeOrderProduct.getCreatedDate();
 				String strOrderedDate = format.format(createdDate);
 				PdfPCell orderedDate = new PdfPCell(new Phrase(String.valueOf(strOrderedDate)));
@@ -212,7 +212,7 @@ public class InvoiceHistoryServiceImpl implements InvoiceHistoryService {
 				unitPrice.setVerticalAlignment(Element.ALIGN_MIDDLE);
 				unitPrice.setHorizontalAlignment(Element.ALIGN_CENTER);
 				table.addCell(unitPrice);
-                //----------QUANTITY------------------
+                                //----------QUANTITY------------------
 				PdfPCell quantity = new PdfPCell(new Phrase(String.valueOf(placeOrderProduct.getQty())));
 				quantity.setPaddingLeft(2);
 				quantity.setVerticalAlignment(Element.ALIGN_MIDDLE);
@@ -283,7 +283,7 @@ public class InvoiceHistoryServiceImpl implements InvoiceHistoryService {
 			document.add(table);
 			document.add(Chunk.NEWLINE);
 
-			Paragraph paragraph = new Paragraph("Thanks and Regards,\nMahavikreta Team\nEmail : notification@mahavikreta.com\nContact: +918629933012", font);
+			Paragraph paragraph = new Paragraph("Thanks and Regards,\nMahavikreta Team\nEmail : example@smaple.com\nContact: +91XXXXXXXX", font);
 			paragraph.setAlignment(Element.ALIGN_LEFT);
 			document.add(paragraph);
 
